@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+
+<body>
+    <h1>Search Results</h1>
+    
+    <div id="results"></div>
+    
+    <script>
+        // Retrieve search results from the backend (e.g., search_engine.search("sample query"))
+        var searchResults = [
+            {
+                title: "Result 1 Title",
+                snippet: "This is a snippet of the search result.",
+                url: "https://www.example.com/result1"
+            },
+            {
+                title: "Result 2 Title",
+                snippet: "This is another snippet of the search result.",
+                url: "https://www.example.com/result2"
+            }
+        ];
+        
+        // Display the search results
+        var resultsDiv = document.getElementById("results");
+        for (var i = 0; i < searchResults.length; i++) {
+            var result = searchResults[i];
+            
+            var resultDiv = document.createElement("div");
+            resultDiv.className = "result";
+            
+            var titleDiv = document.createElement("div");
+            titleDiv.className = "title";
+            titleDiv.textContent = result.title;
+            
+            var snippetDiv = document.createElement("div");
+            snippetDiv.className = "snippet";
+            snippetDiv.textContent = result.snippet;
+            
+            var urlDiv = document.createElement("div");
+            urlDiv.className = "url";
+            var urlLink = document.createElement("a");
+            urlLink.href = result.url;
+            urlLink.textContent = result.url;
+            urlDiv.appendChild(urlLink);
+            
+            resultDiv.appendChild(titleDiv);
+            resultDiv.appendChild(snippetDiv);
+            resultDiv.appendChild(urlDiv);
+            
+            resultsDiv.appendChild(resultDiv);
+        }
+    </script>
+</body>
+</html>
